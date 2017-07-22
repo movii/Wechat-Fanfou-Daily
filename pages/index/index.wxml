@@ -1,0 +1,43 @@
+<!--pages/calendar/index.wxml-->
+
+<view class="calendar__contain">
+  <view class="calendar__hd">
+    <view>
+      <text>周一</text>
+    </view>
+    <view>
+      <text>周二</text>
+    </view>
+    <view>
+      <text>周三</text>
+    </view>
+    <view>
+      <text>周四</text>
+    </view>
+    <view>
+      <text>周五</text>
+    </view>
+    <view>
+      <text>周六</text>
+    </view>
+    <view>
+      <text>周日</text>
+    </view>
+  </view>
+
+  <view class="calendar__bd" wx:for="{{calendars}}" wx:for-item="calendar">
+    <view class="calendar__title">{{calendar.year}} 年 {{calendar.month}} 月</view>
+    <view wx:for="{{calendar.days}}" wx:for-item="day" class="day">  
+      <view wx:if="{{ day.value == 'placeholder' }}" class="placeholder"></view>
+      <view wx:if="{{ day.value == 'value' }}" 
+            class="date {{day.isToday ? 'today':''}}" 
+            data-entry="{{day.entry}}"
+            data-content = "{{day.content}}"
+            catchtap="goToIndex">{{ day.content }}</view>
+      <view wx:if="{{ day.value == 'empty' }}" class="empty">{{ day.content }}</view>    
+    </view>
+  </view>
+</view>
+
+<include src="../footer/footer.wxml"/>
+

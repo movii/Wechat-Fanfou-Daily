@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#46C1FD",
+    "navigationBarTitleText": "饭否每日精选·日历 sample",
+    "navigationBarTextStyle": "white"
+  },
+  "networkTimeout": {
+    "request": 5000,
+    "downloadFile": 5000
+  },
+  "debug": true
+}
