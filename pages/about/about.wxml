@@ -1,0 +1,19 @@
+<!--about.wxml-->
+
+<view class="footer" style="padding-top: 1.325rem; margin-bottom: .125rem; background: #4DC2FA;">
+  <view class="logo" style="border: none;"></view>
+  <view class="logo__text" style="color: #ffffff;">饭否每日精选·日历</view>
+</view>
+<view class="about__contain" style="margin-top: .125rem;">
+  <view class="title">🙏🏻 感谢: </view>
+  <text class="text" selectable> 首先，鸣谢 Z 姐（@小脸儿）无偿提供的 logo 和在开发过程中帮助测试反馈的各位小伙伴（奶瓶 @小小小奶瓶 同学发现了很多 bug，尤其感谢）。 </text>
+
+  <view class="title">☃️ 数据来源: </view>
+  <text class="text" selectable> 数据采集于饭否 Blog 中的「饭否每日精选」，也就是官方的数据来源。对应链接：http://blog.fanfou.com/digest/。 </text>
+
+  <view class="title">👨🏻‍💻 微信小程序中限制: </view>
+  <text class="text bold" selectable>影响使用体验最大的一个是小程序中不能有指向外部的链接。想要查看精选状态中的链接内容，可以到达对应的状态页面，手动选择链接，copy then paste 到浏览器中。</text>
+
+  <view class="title" style="margin-bottom: 0; margin-top: 2.325rem;">胡椒</view>
+  <text class="text" class="margin-top: 0;" selectable>2017-05-26</text>
+</view>

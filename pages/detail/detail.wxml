@@ -1,0 +1,35 @@
+<!--pages/detail/detail.wxml-->
+<view wx:if="status" class="status">
+  
+  <view class="status-meta">
+    
+    <view class="status-meta__user">
+      <image src="{{status.avatar}}"></image>
+      <view>{{status.realname}}</view>
+    </view>
+
+    <view class="status-meta__timestamp">
+      {{status.time}}
+    </view>
+  </view>
+
+  <text class="status__text" selectable>
+    {{status.msg}}
+  </text>
+  
+  <image mode="widthFix" 
+    wx:if="{{status.img.preview}}" 
+    src="{{status.img.preview}}" 
+    data-src="{{status.img.preview}}"
+    class="status__image"
+    catchtap="previewImage">
+  </image>
+
+  <view class="status__fav">
+    被收藏：{{status.count}} 次
+  </view>
+
+</view>
+
+
+<!-- <include src="../footer/footer.wxml"/> -->

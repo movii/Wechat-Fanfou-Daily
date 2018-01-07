@@ -1,0 +1,34 @@
+<!--pages/index/index.wxml-->
+
+<view wx:for="{{statuses}}"  
+    wx:for-item="status" 
+    wx:key="status.statusid" 
+    class="status"
+    data-statusid="{{status.statusid}}"
+    data-entry="{{status.entry}}"
+    catchtap="goToDetail">
+    
+  <view class="status-meta">
+    <view class="status-meta__user">
+      <image src="{{status.avatar}}"></image>
+      <view>{{status.realname}}</view>
+    </view>
+    <view class="status-meta__timestamp">
+      {{status.time}}
+    </view>
+  </view>
+
+  <view class="status__text">
+    {{status.msg}}
+  </view>
+  
+  <image mode="widthFix" 
+    wx:if="{{status.img.preview}}" 
+    src="{{status.img.preview}}" 
+    data-src="{{status.img.preview}}"
+    class="status__image"
+    catchtap="previewImage">
+  </image>
+</view>
+
+<include src="../footer/footer.wxml"/>

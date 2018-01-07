@@ -1,0 +1,23 @@
+/* about.wxss */
+.about__contain {
+  padding: .65rem;
+  color: #333333;
+  width: 90%; 
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 1.125rem;
+  margin: 1.325rem 0 .225rem;
+}
+
+.text {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: .325rem;
+  line-height: 1.5rem;
+}
+
+.text.bold {
+  font-weight: bolder;
+}

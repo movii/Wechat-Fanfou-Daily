@@ -1,0 +1,110 @@
+/* pages/calendar/index.wxss */
+
+.calendar__contain {
+  padding-top: 21px;
+  position: relative;
+  margin-bottom: 1.325rem;
+}
+
+.calendar__hd {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  background: #F8F8F8;
+  color: #96999B;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 20px;
+  overflow: hidden;
+  line-height: 20px;
+  width: 100%;
+  z-index: 100;
+}
+
+.calendar__hd view {
+  flex: 1;
+}
+
+.calendar__hd view text {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  font-size: .6rem;
+  height: 20px;
+  line-height: 20px;
+}
+
+.calendar__title {
+  width: 100%;
+  display: inline-block;
+  text-align: left;
+  font-size: .7rem;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 .325rem;
+  box-sizing: border-box;
+  background: #F5F5F5;
+  margin-bottom: 1px;
+  position: relative;
+  z-index: 0;
+}
+
+.calendar__bd {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+}
+
+.calendar__title {
+  width: 100%;
+}
+
+.calendar__bd .day {
+  display: flex;
+  flex-basis: calc(100% * (1/7));
+  position: relative;
+}
+
+.calendar__bd .day:before {
+  content: '';
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+.calendar__bd .day view {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: .325rem;
+  box-sizing: border-box;
+  border: 1px solid #FFFFFF;
+  font-size: 1.025rem;
+  margin-left: -1px;
+  margin-top: -1px;
+  background: #F5F5F5;
+  color: #000000;
+}
+
+.calendar__bd .day view.today {
+  background: #FFFFFF;
+  color: #18C1F9;
+}
+
+.calendar__bd .day view.placeholder {
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.calendar__bd .day view.empty {
+  color: #cccccc;
+  background: #F5F5F5;
+}

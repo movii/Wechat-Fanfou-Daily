@@ -1,0 +1,59 @@
+/* pages/detail/detail.wxss */
+/* pages/index/index.wxss */
+
+.status {
+  font-size: 1rem; 
+  word-break: break-all;
+  white-space: normal;
+  line-height: 1.25rem;
+  width: 100%;
+  margin: 1.125rem auto 1.325rem;
+  padding-bottom: 2rem;
+}
+.status-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.125rem;
+  width: 90%;
+  margin: 0 auto;
+}
+.status-meta .status-meta__user {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.status-meta .status-meta__user image {
+  margin-right: .325rem;
+  border-radius: 4px;
+}
+.status-meta .status-meta__user image {
+  width: 30px;
+  height: 30px;
+}
+.status-meta__timestamp {
+  flex: 1;
+  font-size: .8rem;
+  color: #999999;
+  text-align: right;
+}
+.status .status__text {
+  display:block;
+  box-sizing: border-box;
+  line-height: 2rem;
+  font-size: 1.225rem;
+  width: 90%;
+  margin: -0.65rem auto .65rem;
+}
+.status .status__image {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+.status__fav {
+  margin: 0 auto;
+  width: 90%;
+  color: #999999;
+  font-size: .8rem;
+}
