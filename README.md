@@ -1,15 +1,12 @@
-
-
-![img](screenshots/wechat_fanfou_daily_screenshot.png)
-
 <div align="center" markdown="1">
   <h1>「饭否每日精选·日历」微信小程序</h1>
   <br>
   <div align="center">
-    <img src="screenshots/vue_fanfou_daily_screenshot.png" width="90%">
-    <br/><br/><br/>
+    <img src="https://github.com/movii/Wechat-Fanfou-Daily/raw/v1/screenshots/wechat_fanfou_daily_screenshot.png">
+    <br/><br/>
     <a href="http://fanfou-daily.leanapp.cn/d/today">扫码访问</a>
-    <img src="screenshots/qrcode.png" width="50%">
+    <br/>
+    <img src="https://github.com/movii/Wechat-Fanfou-Daily/raw/v1/screenshots/qrcode.jpg" width="40%">
    </div>
 </div>
 
