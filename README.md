@@ -5,7 +5,7 @@
     <img src="https://github.com/movii/Wechat-Fanfou-Daily/raw/v1/screenshots/wechat_fanfou_daily_screenshot.png">
     <br/><br/><br/>
     <h2>扫码访问</h2>
-    <br/><br/>
+    <br/>
     <img src="https://github.com/movii/Wechat-Fanfou-Daily/raw/v1/screenshots/qrcode.jpg" width="40%">
    </div>
 </div>
