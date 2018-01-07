@@ -3,9 +3,9 @@
   <br>
   <div align="center">
     <img src="https://github.com/movii/Wechat-Fanfou-Daily/raw/v1/screenshots/wechat_fanfou_daily_screenshot.png">
+    <br/><br/><br/>
+    <h2>扫码访问</h2>
     <br/><br/>
-    <a href="http://fanfou-daily.leanapp.cn/d/today">扫码访问</a>
-    <br/>
     <img src="https://github.com/movii/Wechat-Fanfou-Daily/raw/v1/screenshots/qrcode.jpg" width="40%">
    </div>
 </div>
