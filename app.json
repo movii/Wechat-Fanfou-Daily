@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/calendar/index",
+    "pages/detail/index",
+    "pages/list/index",
+    "pages/about/about"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#46C1FD",
+    "navigationBarTitleText": "饭否每日精选",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "backgroundColor": "#46C1FD",
+    "borderStyle": "white",
+    "selectedColor": "#FFFFFF",
+    "position": "top",
+    "color": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "今天"
+      },
+      {
+        "pagePath": "pages/calendar/index",
+        "text": "日历"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 5000,
+    "downloadFile": 5000
+  },
+  "debug": true
+}

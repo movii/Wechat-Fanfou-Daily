@@ -1,0 +1,154 @@
+/* pages/detail/index.wxss */
+/* 状态详情 */
+
+page {
+  width: 100%;
+  height: 100%;
+  background: #46C1FD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover {
+  margin-top: .65rem;
+  width: 96vw;
+  height: 100vh;
+  align-self: center;
+  background: #ffffff;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.contain {
+  overflow: scroll;
+  width: 100%;
+  height: 90%;
+  padding: 1.25rem 1rem;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
+}
+
+.status {
+  width: 100%;
+  font-size: 1rem;
+  word-break: break-all;
+  white-space: normal;
+  line-height: 1.25rem;
+  user-select: auto;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.status-meta {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding-bottom: .65rem;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.status-meta .status-meta__user {
+  flex: 2;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.status-meta .status-meta__user .display-name {
+  flex: 3.5;
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+}
+
+.status-meta .status-meta__user .display-name .name{
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.status-meta .status-meta__user .display-name .id {
+  font-size:  .8rem;
+  line-height: 1.5;
+  color: #9a9a9a;
+}
+
+.status-meta .status-meta__user .avatar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  margin-right: 3px;
+}
+
+.status-meta .status-meta__user .avatar image {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 1px solid #cccccc;
+}
+
+.status-meta .status-meta__timestamp {
+  font-size:.8rem;
+  color:#9a9a9a;
+}
+
+.status-meta .status-meta__user view {
+}
+
+.status .status__text {
+  padding: .65rem 0;
+  box-sizing: border-box;
+  line-height: 2rem;
+  font-size: 1.325rem;
+  box-sizing: border-box;
+}
+
+.status .status__image {
+  width: 100%;
+  height: 200px;
+  margin: .325rem 0 0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #f1f3f5;
+}
+
+.share-menu {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: .65rem;
+  box-sizing: border-box;
+  font-size: .8rem;
+  color: #9a9a9a;
+  position: relative;
+  z-index: 200;
+  box-shadow: 0 -5px 20px 0 #ffffff;
+}
+
+.share-menu button {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: 5px;
+}
+
+.share-menu button image {
+  margin-left: auto;
+  width: 25px;
+  margin-right: 5px;
+}
+
+.share-menu text {
+  margin-right: 2px;
+  font-size: .8rem;
+}

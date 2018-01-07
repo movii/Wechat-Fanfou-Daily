@@ -1,0 +1,55 @@
+<!-- pages/detail/index.wxml-->
+<!-- 状态详情 -->
+
+<view class="cover">
+  <view class="contain">
+    <view class="status">
+
+      <view class="status-meta">
+        <view class="status-meta__user">
+
+          <view class="avatar">
+            <image src="{{ status.avatar }}"
+                   mode="aspectFill"
+                   lazy-load="true">
+            </image>
+          </view>
+
+          <view class="display-name">
+            <text class="name">{{ status.realname }}</text>
+            <text class="id">{{ status.statusid }}</text>
+          </view>
+
+        </view>
+
+        <view class="status-meta__timestamp">
+          {{ status.time }}
+        </view>
+
+      </view>
+
+      <view class="status__text">
+        {{ status.msg }}
+      </view>
+
+      <image mode="widthFix"
+          class="status__image"
+          lazy-load="true"
+          wx:if="{{ status.img.preview }}"
+          src="{{ status.img.preview }}"
+          data-src="{{ status.img.preview }}"
+          catchtap="previewImage">
+      </image>
+    </view>
+  </view>
+
+  <view class="share-menu">
+    <button open-type="share">
+      <image tapName="share_message"
+             src="../../assets/images/icon64_wx_logo.png"
+             mode="widthFix"></image>
+      <text tapName="share_message">分享给朋友</text>
+    </button>
+  </view>
+</view>
+

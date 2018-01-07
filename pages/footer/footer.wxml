@@ -1,0 +1,9 @@
+<!--footer.wxml-->
+<template>
+
+</template>
+<view class="footer">
+  <view class="logo"></view>
+  <navigator url="/pages/about/about" class="logo__text" hover-class="navigator-hover">饭否每日精选·日历 <text>ABOUT</text></navigator>
+</view>
+

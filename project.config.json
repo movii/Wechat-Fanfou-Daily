@@ -1,0 +1,71 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.5.2",
+	"appid": "wxf57f9f773defea3d",
+	"projectname": "%E9%A5%AD%E5%90%A6%E7%B2%BE%E9%80%89",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": [
+				{
+					"name": "test",
+					"pathName": "",
+					"title": "",
+					"cacheKey": ""
+				}
+			]
+		},
+		"conversation": {
+			"current": 0,
+			"list": [
+				{
+					"name": "test",
+					"query": "",
+					"boxQI": "",
+					"service": {}
+				}
+			]
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": 0,
+					"name": "详情页面",
+					"pathName": "pages/detail/index",
+					"query": "statusid=2sEV95g8-bQ&entry=2017-11-07",
+					"scene": "1007"
+				},
+				{
+					"id": -1,
+					"name": "日历页面测试",
+					"pathName": "pages/calendar/index",
+					"query": "",
+					"scene": "1008"
+				},
+				{
+					"id": -1,
+					"name": "列表页面",
+					"pathName": "pages/list/index",
+					"query": "entry=2017-11-03",
+					"scene": "1007"
+				},
+				{
+					"id": -1,
+					"name": "关于页面",
+					"pathName": "pages/about/about",
+					"query": "",
+					"scene": "1007"
+				}
+			]
+		}
+	}
+}
