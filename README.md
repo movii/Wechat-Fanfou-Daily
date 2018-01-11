@@ -5,6 +5,7 @@
     <img src="https://github.com/movii/Wechat-Fanfou-Daily/raw/v2/screenshots/wechat_fanfou_daily_screenshot_v2.png">
     <br/><br/><br/>
     <h2>扫码访问</h2>
+<i>上面提供的 QRCode 扫描到达的对应的是分支中 v1（线上版本），v2 的版本提交之后没有通过审核，因为个人开发者牵扯到类目问题，在开发者论坛上做过一次<a href="https://developers.weixin.qq.com/blogdetail?action=get_post_info&docid=df4c02809daf820931dad4ef8a11e7af&token=511912409&lang=zh_CN">反馈</a>，最终还是没啥用。</i>
     <br/>
     <img src="https://github.com/movii/Wechat-Fanfou-Daily/raw/v1/screenshots/qrcode.jpg" width="40%">
    </div>
@@ -24,38 +25,26 @@ Profile 中的：[Vue-Fanfou-Daily](https://github.com/movii/Vue-Fanfou-Daily) �
 #### ❓ 为什么会有爬虫抓取数据，然后存到 LeanCloud？
 微信小程序中所有发出的请求必须是 HTTPS 的，开始制作的时候（2017 年 5 月）「饭否每日精选」官方数据源是没有 HTTPS 支持的，所以当时首要的问题就是搞定数据源 HTTPS，做了点简单的 research 之后决定放在 LeanCloud 上（看了 LeanCloud 官方写的一个使用 [LeanCloud 做为数据存储的 TODOs demo](https://github.com/leancloud/leantodo-weapp)）。
 
-<br/>
-
-## 上线的微信小程序版本
-上面提供的 QRCode 扫描到达的对应的是分支中 v1，v2 的版本提交之后没有通过审核，因为个人开发者牵扯到类目问题，在开发者论坛上做过一次[反馈](https://developers.weixin.qq.com/blogdetail?action=get_post_info&docid=df4c02809daf820931dad4ef8a11e7af&token=511912409&lang=zh_CN)，最终还是没啥用。
-
-<br/>
-
 ##  🚀 升级到 v2
 仓库中有两个分支，主要的**区别在于爬虫抓取数据存储的姿势不同**，所以导致前端获取数据的方式不同：
 
 - **v1.x.x**：一条记录 = 一天的数据，包含二十条状态；
 - **v2.x.x**：一条记录 = 一条状态的数据。
 
-### 👨🏻‍💻️ 改写爬虫的缘由
+#### ❓👨🏻‍💻️ 改写爬虫的缘由
 有这样一个场景，用户分享出去一条状态（一条精选的详情页），被分享的用户打开页面，这个时候需要首先去请求一整天的状态才能获得其中的目标数据。因为写 爬虫 v1 的时候没有考虑到这个情况，所以实际处理这个「先请求一天的数据，再从中取出一条数据」的代码当时写得很变扭。
 
 所以，年底（2017年）想做点更新的时候，索性从爬虫开始全部做了修改，以至于前台的代码也做了很多更新，于是有了现在 2.0 版本。
-
-<br/>
 
 ## 🙏🏻 感谢
 - 鸣谢 Z 姐（[@小脸儿](https://github.com/zchan0)）制作的网站 logo（favicon）；
 - 断断续续向 rex 大（[@.rex](https://fanfou.com/zhasm)）请教了不少问题，都耐心一一解答，👍；
 - 之前在开发小程序过程中帮助测试反馈的各位小伙伴（奶瓶 @小小小奶瓶 同学发现了很多 bug，尤其感谢）。
-<br/>
 
 ## 相关 blog 文章
 1. [笔记：「饭否精选」微信小程序（一）制作记录](http://movii.github.io/blog/2017/06/01/没能上线的小程序-饭否精选日历/)
 2. [笔记：「饭否精选」微信小程序（二）爬虫部分](http://movii.github.io/blog/2017/06/15/fanfou-daily-wechat-log-scrapy/)
 3. [笔记：「饭否精选」微信小程序（三）小程序开发中遇到的问题](http://movii.github.io/blog/2017/07/15/fanfou-daily-wechat-min-program/)
-
-<br/>
 
 ## License
 MIT License
