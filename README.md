@@ -7,6 +7,8 @@
     <h2>扫码访问</h2>
 <i align="left">上面提供的 QRCode 扫描到达的对应的是分支中 v1（线上版本），v2 的版本提交之后没有通过审核，因为个人开发者牵扯到类目问题，在开发者论坛上做过一次<a href="https://developers.weixin.qq.com/blogdetail?action=get_post_info&docid=df4c02809daf820931dad4ef8a11e7af&token=511912409&lang=zh_CN">反馈</a>，最终还是没啥用。</i>
     <br/>
+    <br/>
+    <br/>
     <img src="https://github.com/movii/Wechat-Fanfou-Daily/raw/v1/screenshots/qrcode.jpg" width="40%">
    </div>
 </div>
@@ -18,7 +20,7 @@ Profile 中的：[Vue-Fanfou-Daily](https://github.com/movii/Vue-Fanfou-Daily) �
 
 这两个项目除了长得差不多外，**同时使用的也是同一个数据源**：写了一个简单的爬虫抓取「饭否每日精选」官方数据，然后存到 LeanCloud 上，供两个项目使用。
 
-发布项目到 Github 的时候，考虑到小程序这部分，不想参杂 `package.json`、 `./node_modules` 等在目录中，**所以爬虫部分的代码都在 Vue-fanfou-daily 项目中，具体的使用也写在了该项目的 README 中，请参考《[首次抓取所有存量数据并存储至 LeanCloud](https://github.com/movii/Vue-Fanfou-Daily#%E9%A6%96%E6%AC%A1%E6%8A%93%E5%8F%96%E6%89%80%E6%9C%89%E5%AD%98%E9%87%8F%E6%95%B0%E6%8D%AE%E5%B9%B6%E5%AD%98%E5%82%A8%E8%87%B3-leancloud)》和《[☁️ 部署至 LeanCloud](https://github.com/movii/Vue-Fanfou-Daily#%EF%B8%8F-%E9%83%A8%E7%BD%B2%E8%87%B3-leancloud)》**。
+发布项目到 Github 的时候，考虑到小程序这部分，不想参杂 `package.json`、 `./node_modules` 等在目录中，**所以爬虫部分的代码都在 Vue-fanfou-daily 项目中，具体的使用也写在了该项目的 README 中**，请参考《[首次抓取所有存量数据并存储至 LeanCloud](https://github.com/movii/Vue-Fanfou-Daily#%E9%A6%96%E6%AC%A1%E6%8A%93%E5%8F%96%E6%89%80%E6%9C%89%E5%AD%98%E9%87%8F%E6%95%B0%E6%8D%AE%E5%B9%B6%E5%AD%98%E5%82%A8%E8%87%B3-leancloud)》和《[☁️ 部署至 LeanCloud](https://github.com/movii/Vue-Fanfou-Daily#%EF%B8%8F-%E9%83%A8%E7%BD%B2%E8%87%B3-leancloud)》。
 
 如果在设置爬虫、以及抓取数据存储至 LeanCloud 的过程中有问题，欢迎提 issue。
 
