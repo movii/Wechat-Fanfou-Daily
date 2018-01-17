@@ -1,0 +1,6 @@
+<!--status-list.wxml-->
+<view wx:for="{{ statuses }}" 
+      wx:for-item="status" 
+      wx:key="status.statusid" >
+  <status status="{{ status }}"></status>
+</view>
