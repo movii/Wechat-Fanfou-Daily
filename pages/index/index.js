@@ -64,14 +64,8 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: `饭否每日精选 ${this.data.today.date}`,
-      path: '/pages/index/index',
-      success: function (res) {
-        // 转发成功
-      },
-      fail: function (res) {
-        // 转发失败
-      }
+      title: `饭否每日精选 | 今天`,
+      path: '/pages/index/index'
     }
   },
 

@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/list/index",
     "pages/calendar/index",
     "pages/detail/index",
-    "pages/list/index",
     "pages/about/about"
   ],
   "window": {

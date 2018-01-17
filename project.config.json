@@ -34,8 +34,12 @@
 				}
 			]
 		},
-		"miniprogram": {
+		"game": {
 			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
@@ -64,6 +68,12 @@
 					"pathName": "pages/about/about",
 					"query": "",
 					"scene": "1007"
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/list/index",
+					"query": ""
 				}
 			]
 		}

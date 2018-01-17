@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    date: '',
+    date: null,
     statuses: {},
     hide_footer: true
   },
@@ -25,7 +25,11 @@ Page({
       })
     }
 
-    store.fetch_daily(`${options.entry.replace(/\.daily/ig, '')}`).then(data => {
+    let date = options && options.entry 
+      ? `${options.entry.replace(/\.daily/ig, '')}`
+      : 'today'
+
+    store.fetch_list(date).then(data => {
       this.setData({
        'date': entry,
        'statuses': data,
@@ -38,68 +42,10 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
-
-  },
-
-  previewImage: function (evt) {
-    let _src = evt.target.dataset.src
-    wx.previewImage({
-      current: _src, // 当前显示图片的http链接
-      urls: [_src] // 需要预览的图片http链接列表
-    })
-  },
-
-  goToDetail (evt) {
-    let id = evt.currentTarget.dataset.statusid;
-    let entry = evt.currentTarget.dataset.entry;
-    wx.navigateTo({
-      url: '/pages/detail/index?statusid=' + id + '&entry=' + entry
-    })
+    return {
+      title: `饭否每日精选 | ${this.data.date}`,
+      path: '/pages/index/index'
+    }
   }
 })

@@ -27,6 +27,12 @@ class Store {
     this.store.entries = value;
   }
 
+  fetch_list (date) {
+    return date === 'today'
+      ? this.fetch_today()
+      : this.fetch_daily(date)
+  }
+
   fetch_daily (date) {
     let query = new this.LeanCloud.AV.Query('STATUSES');
     query.equalTo('date', date);
