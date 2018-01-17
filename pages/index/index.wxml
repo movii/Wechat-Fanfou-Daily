@@ -30,7 +30,7 @@
     {{ status.msg }}
   </view>
 
-  <image mode="center"
+  <image mode="widthFix"
       class="status__image"
       lazy-load="true"
       wx:if="{{ status.img.preview }}"
