@@ -3,41 +3,11 @@
 <view wx:for="{{ statuses }}"
       wx:for-item="status"
       wx:key="status.statusid"
-      class="status"
       data-statusid="{{ status.statusid }}"
       data-entry="{{ status.date }}"
       catchtap="goToDetail">
 
-  <view class="status-meta">
-    <view class="status-meta__user">
-      <view class="avatar">
-        <image src="{{ status.avatar }}"
-               mode="aspectFill"
-               lazy-load="true">
-        </image>
-      </view>
-      <view class="display-name">
-        <text class="name">{{ status.realname }}</text>
-        <text class="id">{{ status.statusid }}</text>
-      </view>
-    </view>
-    <view class="status-meta__timestamp">
-      {{ status.time }}
-    </view>
-  </view>
-
-  <view class="status__text">
-    {{ status.msg }}
-  </view>
-
-  <image mode="widthFix"
-      class="status__image"
-      lazy-load="true"
-      wx:if="{{ status.img.preview }}"
-      src="{{ status.img.preview }}"
-      data-src="{{ status.img.preview }}"
-      catchtap="previewImage">
-  </image>
+  <status status="{{ status }}"></status>
 </view>
 
 <view hidden="{{ hide_footer }}">
