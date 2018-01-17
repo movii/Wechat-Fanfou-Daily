@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "status": "/components/status/status"
+    "status-list": "/components/status-list/status-list"
   }
 }

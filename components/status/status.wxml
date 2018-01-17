@@ -1,4 +1,7 @@
-<view class="status">
+<view class="status"
+      data-statusid="{{ status.statusid }}" 
+      data-entry="{{ status.date }}" 
+      catchtap="goToDetail">
   <view class="status-meta">
     <view class="status-meta__user">
       <view class="avatar">
