@@ -2,7 +2,7 @@ let app = getApp();
 let store = app.globalData.store;
 
 Page({
-  isCurrentPage: false,
+  // isCurrentPage: false,
   
   data: {
     hasSearch: false,
@@ -19,13 +19,13 @@ Page({
   },
 
   onShow () {
-    this.isCurrentPage = true;
-    wx.onAccelerometerChange(this.onDiviceShake)
+    // this.isCurrentPage = true;
+    // wx.onAccelerometerChange(this.onDiviceShake)
   },
 
   onHide: function () {
-    this.isCurrentPage = false 
-    wx.stopAccelerometer()
+    // this.isCurrentPage = false 
+    // wx.stopAccelerometer()
   },
 
   onShareAppMessage: function () {
