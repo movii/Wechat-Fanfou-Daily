@@ -39,13 +39,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 5,
 			"list": [
 				{
 					"id": 0,
 					"name": "详情页面",
 					"pathName": "pages/detail/index",
-					"query": "statusid=2sEV95g8-bQ&entry=2017-11-07",
+					"query": "statusid=2sEV95g8-bQ",
 					"scene": "1007"
 				},
 				{
@@ -74,6 +74,13 @@
 					"name": "首页",
 					"pathName": "pages/list/index",
 					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": "keyword=hello",
+					"scene": "1007"
 				}
 			]
 		}
