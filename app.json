@@ -4,7 +4,8 @@
     "pages/list/index",
     "pages/calendar/index",
     "pages/detail/index",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,6 +27,10 @@
       {
         "pagePath": "pages/calendar/index",
         "text": "日历"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索"
       }
     ]
   },

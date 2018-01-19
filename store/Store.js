@@ -27,6 +27,29 @@ class Store {
     this.store.entries = value;
   }
 
+  fetch_random () {
+    let randomArray = [
+      Math.floor(Math.random() * Math.floor(50)),
+      Math.floor(Math.random() * Math.floor(500)),
+      Math.floor(Math.random() * Math.floor(2000)),
+      Math.floor(Math.random() * Math.floor(5000)),
+      Math.floor(Math.random() * Math.floor(6000)),
+      Math.floor(Math.random() * Math.floor(8000)),
+      Math.floor(Math.random() * Math.floor(10000)),
+      Math.floor(Math.random() * Math.floor(20000))
+    ]
+
+    let random = randomArray[Math.floor(Math.random()*randomArray.length)];
+    let query = new this.LeanCloud.AV.Query('STATUSES');
+    query.skip(random);
+    query.limit(20);
+
+    return query.find().then(statuses => {
+      statuses.forEach(status =>  status.set('msg', transformer(status.get('msg'))))
+      return statuses
+    })
+  }
+
   fetch_list (date) {
     return date === 'today'
       ? this.fetch_today()
@@ -83,6 +106,18 @@ class Store {
         let days = entries.map(item => item.replace(/\.json/ig, ''))
         return resolve(this.Calendar.generate(days))
       })
+    })
+  }
+
+  performSearch (value) {
+    let query = new this.LeanCloud.AV.Query('STATUSES');
+    query.contains('msg', value);
+    query.descending('createdAt');
+    query.limit(50);
+    
+    return query.find().then(statuses => {
+      statuses.forEach(status =>  status.set('msg', transformer(status.get('msg'))))
+      return statuses
     })
   }
 }
