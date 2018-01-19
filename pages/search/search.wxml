@@ -1,0 +1,29 @@
+<view class="contain__body">
+  <view class="contain__search">
+    <input class="input__search" 
+          placeholder="搜索" 
+          bindconfirm="onInputSubmit"
+          bindinput="onInputType"
+          type="text"
+          confirm-type="search"/>
+  </view>
+    
+  <view wx:if="{{ keyword }}" class="result-title">
+    <text wx:if="{{ keyword && count }}" >「{{ keyword }}」的搜索结果，一共 {{ count }} 条</text>
+    <text wx:else class="result-title">没有「{{ keyword }}」的搜索结果</text>
+
+    <view class="contain__result"  wx:if="{{ count }}">
+      <status-list statuses="{{ statuses }}"></status-list>
+    </view>
+
+  </view>
+  <view wx:else class="contain__result-empty">
+    <view>
+      <text>1. 结果均来自「饭否每日精选」历史数据；</text>
+      <text>2. 早年的数据，图片没有保存高清，会糊；</text>
+      <text>3. 暂时把搜索结果数量限制在 50 条以内;</text>
+      <text>4. Make use of this，try「kindle」；</text>
+      <text>5. And try Make fun of it. 🧟‍♂️</text>
+    </view>
+  </view>
+</view>
