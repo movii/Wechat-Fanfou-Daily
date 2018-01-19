@@ -1,18 +1,11 @@
 // pages/list/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     date: null,
     statuses: {},
     hide_footer: true
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     let app = getApp();
     let store = app.globalData.store;
@@ -25,13 +18,11 @@ Page({
       })
     }
 
-    let date = options && options.entry 
-      ? `${options.entry.replace(/\.daily/ig, '')}`
-      : 'today'
+    let date = options.entry.replace(/\.daily/ig, '')
 
     store.fetch_list(date).then(data => {
       this.setData({
-       'date': entry,
+       'date': date,
        'statuses': data,
        'hide_footer': false
       })
@@ -45,7 +36,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: `饭否每日精选 | ${this.data.date}`,
-      path: '/pages/index/index'
+      path: `/pages/list/index?entry=${this.data.date}`
     }
   }
 })

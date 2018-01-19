@@ -38,7 +38,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: `饭否每日精选 | 日历`,
-      path: '/pages/index/index'
+      path: '/pages/calendar/index'
     }
   },
 

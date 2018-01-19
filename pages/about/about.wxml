@@ -20,7 +20,7 @@
   <view class="title">👨🏻‍💻 微信小程序中限制: </view>
   <text class="text bold" selectable="true">影响使用体验最大的一个是小程序中不能有指向外部的链接。想要查看精选状态中的链接内容，可以到达对应的状态页面，手动选择链接，copy then paste 到浏览器中。</text>
 
-  <view class="title">📆 版本历史: </view>
+  <!-- <view class="title">📆 版本历史: </view>
   <text class="subtitle">2017-11-09，第四次提交审核</text>
   <text class="subtext" selectable="true">主要为下一个版本做准备：</text>
   <text class="subtext" selectable="true">1. 调整 UI；</text>
@@ -31,7 +31,7 @@
   <text class="subtitle">2017-06-16，第二次提交审核，失败。</text>
   <text class="subtitle">2017-06-01，第一次提交审核，失败。</text>
   <text class="subtitle">2017-05-26，完成提交审核。</text>
-  <text class="text" selectable></text>
+  <text class="text" selectable></text> -->
 
   <view class="title" style="margin-bottom: 0; margin-top: 2.325rem;">胡椒</view>
   <text class="text" class="margin-top: 0;" selectable>编辑于 2017-11-09</text>
