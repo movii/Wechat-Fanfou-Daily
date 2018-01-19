@@ -2,17 +2,30 @@ let app = getApp();
 let store = app.globalData.store;
 
 Page({
+  isCurrentPage: false,
+  
   data: {
     hasSearch: false,
     keyword: null,
     statuses: {},
-    count: null
+    count: null,
+    resultTitle: null
   },
 
-  onLoad: function (options) {
+  onLoad (options) {
     if (options && options.keyword) {
       this.search(options.keyword)
     }
+  },
+
+  onShow () {
+    this.isCurrentPage = true;
+    wx.onAccelerometerChange(this.onDiviceShake)
+  },
+
+  onHide: function () {
+    this.isCurrentPage = false 
+    wx.stopAccelerometer()
   },
 
   onShareAppMessage: function () {
@@ -68,5 +81,36 @@ Page({
           setTimeout(() => wx.hideLoading(), 200)
         }
       })
+  },
+
+  onDiviceShake (acceleration) {
+    if(!this.isCurrentPage){ return }
+      if (
+        acceleration.x > 1 
+        && acceleration.y > .5
+      ) {
+        wx.showToast({ title: '正在加载' })
+        wx.vibrateLong()
+        this.refreshRandom()
+      }
+  },
+
+  refreshRandom () {
+    this.setData({ statuses: [] })
+    wx.showLoading({
+      title: "加载中...",
+      mask: true
+    })
+
+    store.fetch_random().then(statuses => {
+      this.setData({
+        'statuses': statuses,
+        resultTitle: '摇一摇'
+      })
+
+      if ( wx.hideLoading ) {
+        setTimeout(() => wx.hideLoading(), 200)
+      }
+    })
   }
 })
