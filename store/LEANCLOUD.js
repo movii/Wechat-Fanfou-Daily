@@ -10,4 +10,4 @@ class LeanCloud {
   }
 }
 
-module.exports = LeanCloud;
+module.exports = new LeanCloud();
