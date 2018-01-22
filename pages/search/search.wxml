@@ -3,7 +3,6 @@
     <input class="input__search" 
           placeholder="搜索" 
           bindconfirm="onInputSubmit"
-          bindinput="onInputType"
           type="text"
           confirm-type="search"/>
   </view>

@@ -1,10 +1,12 @@
-const transformer = require('../utils/status.transformer');
-const LeanCloud = require('./LEANCLOUD');
-const Calendar  = require('./Calendar');
+import transformer from '../utils/status.transformer'
+import Calendar from './Calendar'
+import { AV } from '../leancloud/index'
+
+import Status from '../models/status';
+import Entries from '../models/entries'
 
 class Store {
   constructor() {
-    this.LeanCloud = new LeanCloud();
     this.Calendar  = new Calendar();
 
     this.store = {
@@ -39,8 +41,11 @@ class Store {
       Math.floor(Math.random() * Math.floor(20000))
     ]
 
-    let random = randomArray[Math.floor(Math.random()*randomArray.length)];
-    let query = new this.LeanCloud.AV.Query('STATUSES');
+    let random = randomArray[
+      Math.floor(Math.random()*randomArray.length)
+    ]
+
+    let query = new AV.Query(Status)
     query.skip(random);
     query.limit(20);
 
@@ -50,28 +55,21 @@ class Store {
     })
   }
 
-  fetch_list (date) {
-    return date === 'today'
-      ? this.fetch_today()
-      : this.fetch_daily(date)
-  }
-
   fetch_daily (date) {
-    let query = new this.LeanCloud.AV.Query('STATUSES');
+    let query = new AV.Query(Status);
     query.equalTo('date', date);
     query.descending('createdAt');
 
-    // strip out HTML tags
     return query.find().then(statuses => {
-      statuses.forEach(status =>  status.set('msg', transformer(status.get('msg'))))
+      statuses.forEach(status =>  status.set('msg', transformer(status.msg)))
       return statuses
     })
   }
 
   fetch_entries () {
     return new Promise((resolve, rejcect) => {
-      new this.LeanCloud.AV.Query('ENTRIES').first().then(res => {
-        let entries = res.get('data');
+      new AV.Query(Entries).first().then(res => {
+        let entries = res.data;
         let today = [...entries].shift();
         this.entries = entries;
         this.today = today;
@@ -82,12 +80,13 @@ class Store {
   }
 
   fetch_status (statusid) {
-    let query = new this.LeanCloud.AV.Query('STATUSES')
+    let query = new AV.Query(Status)
+    
     query.equalTo('statusid', statusid)
     query.limit(1)
 
     return query.find().then(results => {
-      results[0].set('msg', transformer(results[0].get('msg')))
+      results[0].set('msg', transformer(results[0].msg))
       return results[0]
     }, err => console.log(err))
   }
@@ -95,7 +94,7 @@ class Store {
   fetch_today () {
     return this.entries.then(entries => {
       let date_string = [...entries].shift().replace(/\.daily\.json/ig, '');
-      return this.fetch_daily(date_string);
+      return this.fetch_daily(date_string)
     }, err => console.log(err))
   }
 
@@ -110,7 +109,7 @@ class Store {
   }
 
   performSearch (value) {
-    let query = new this.LeanCloud.AV.Query('STATUSES');
+    let query = new AV.Query(Status);
     query.contains('msg', value);
     query.descending('createdAt');
     query.limit(50);
