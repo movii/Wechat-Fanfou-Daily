@@ -1,4 +1,4 @@
-import { AV } from '../store/LEANCLOUD'; 
+import { AV } from '../leancloud/index';
 
 class Status extends AV.Object {
   get statusid () {

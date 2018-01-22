@@ -1,6 +1,6 @@
 import transformer from '../utils/status.transformer'
 import Calendar from './Calendar'
-import { AV } from './LEANCLOUD'
+import { AV } from '../leancloud/index'
 
 import Status from '../models/status';
 import Entries from '../models/entries'
@@ -94,7 +94,7 @@ class Store {
   fetch_today () {
     return this.entries.then(entries => {
       let date_string = [...entries].shift().replace(/\.daily\.json/ig, '');
-      return this.fetch_daily(date_string);
+      return this.fetch_daily(date_string)
     }, err => console.log(err))
   }
 
