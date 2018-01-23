@@ -68,7 +68,7 @@ Page({
       duration: 0
     })
 
-    store.performSearch(keyword)
+    store.getQuery(keyword)
       .then(statuses => {
         this.setData({
           statuses: statuses.length

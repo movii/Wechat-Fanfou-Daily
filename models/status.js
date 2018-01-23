@@ -1,6 +1,7 @@
 import { AV } from '../leancloud/index';
 
 class Status extends AV.Object {
+
   get statusid () {
     return this.get('statusid')
   }
@@ -34,13 +35,13 @@ class Status extends AV.Object {
     return this.get('loginname')
   }
 
+  set msg (value) {
+    this.set('msg', value)
+  }
+
   get msg (){
     return this.get('msg')
   }
-
-  // get id () {
-  //   return this.get('id')
-  // }
 
   get avatar () {
     return this.get('avatar')
