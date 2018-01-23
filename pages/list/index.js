@@ -1,4 +1,6 @@
-// pages/list/index.js
+const app = getApp();
+const store = app.globalData.store;
+
 Page({
   data: {
     date: null,
@@ -7,10 +9,12 @@ Page({
   },
 
   onLoad: function (options) {
-    let app = getApp();
-    let store = app.globalData.store;
-    let entry = options.entry;
+    this.setData({
+      date: options.entry.replace(/\.daily/ig, '')
+    })
+  },
 
+  onShow () {
     if (wx.showLoading) {
       wx.showLoading({
         title: "加载中...",
@@ -18,14 +22,9 @@ Page({
       })
     }
 
-    let date = options.entry.replace(/\.daily/ig, '')
-
-    console.log(date)
-
-    store.getDaily(date).then(data => {
+    store.getDaily(this.data.date).then(statuses => {
       this.setData({
-       'date': date,
-       'statuses': data,
+       'statuses': statuses,
        'hide_footer': false
       })
 
