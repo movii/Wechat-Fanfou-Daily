@@ -1,27 +1,18 @@
-// pages/calendar/index.js
-Page({
+const app = getApp();
+const store = app.globalData.store;
 
-  /**
-   * 页面的初始数据
-   */
+Page({
   data: {
     store: null,
     calendars: [],
     hide_footer: true
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onShow () {
     wx.showLoading && wx.showLoading({
       title: "加载中...",
       mask: true
     });
-
-    let app = getApp();
-    let store = app.globalData.store;
 
     store.get_calendars().then(data => {
       this.setData({ 

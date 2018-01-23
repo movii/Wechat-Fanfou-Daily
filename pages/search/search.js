@@ -13,14 +13,20 @@ Page({
   },
 
   onLoad (options) {
-    if (options && options.keyword) {
-      this.search(options.keyword)
-    }
+   if (options && options.keyword) {
+     this.setData({
+       keyword: options.keyword
+     })
+   }
   },
 
   onShow () {
     // this.isCurrentPage = true;
     // wx.onAccelerometerChange(this.onDiviceShake)
+
+    if (this.data.keyword) {
+      this.search(this.data.keyword)
+    }
   },
 
   onHide: function () {
