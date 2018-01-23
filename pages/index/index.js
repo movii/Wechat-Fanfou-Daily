@@ -24,7 +24,7 @@ Page({
     let app = getApp()
     let store = app.globalData.store
 
-    store.fetch_today().then(data => {
+    store.getToday().then(data => {
       this.setData({ 'statuses': data, 'hide_footer': false });
       if ( wx.hideLoading ) {
         setTimeout(() => wx.hideLoading(), 100)

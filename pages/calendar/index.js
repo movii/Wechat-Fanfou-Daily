@@ -44,7 +44,6 @@ Page({
 
   goToIndex (evt) {
     let entry = evt.currentTarget.dataset.entry;
-    console.log(`tap ${entry}`)
     wx.navigateTo({
       url: '/pages/list/index?entry=' + entry
     })

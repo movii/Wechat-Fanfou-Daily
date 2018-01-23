@@ -20,7 +20,9 @@ Page({
 
     let date = options.entry.replace(/\.daily/ig, '')
 
-    store.fetch_list(date).then(data => {
+    console.log(date)
+
+    store.getDaily(date).then(data => {
       this.setData({
        'date': date,
        'statuses': data,

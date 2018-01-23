@@ -17,8 +17,8 @@ Page({
 
     let condition = options && options.statusid
 
-    if ( condition ) {
-      store.fetch_status(options.statusid).then(status => {
+    if (condition) {
+      store.getStatus(options.statusid).then(status => {
         this.setData({
           'status': status 
         })

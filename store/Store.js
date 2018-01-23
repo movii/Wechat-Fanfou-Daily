@@ -2,100 +2,103 @@ import transformer from '../utils/status.transformer'
 import Calendar from './Calendar'
 import { AV } from '../leancloud/index'
 
-import Status from '../models/status';
+import Status from '../models/status'
 import Entries from '../models/entries'
+
+import {
+  fetchEntries,
+  fetchStatus,
+  fetchDaily,
+  fetchRandom,
+  search
+} from './api'
+
+import status from '../models/status';
 
 class Store {
   constructor() {
     this.Calendar  = new Calendar();
 
     this.store = {
-      dailys: null,
-      statuses: null
-    };
+      entries: [],
+      dailys: [],
+      statuses: [],
+      queries: []
+    }
   }
 
   init () {
-    this.fetch_entries()
+    this.getEntries()
   }
 
   get entries() {
-    return this.store.entries
+    return this.store.entries && this.store.entries.length
     ? Promise.resolve(this.store.entries)
-    : this.fetch_entries();
+    : this.getEntries();
   }
 
-  set entries( value ) {
+  set entries(value) {
     this.store.entries = value;
   }
 
-  fetch_random () {
-    let randomArray = [
-      Math.floor(Math.random() * Math.floor(50)),
-      Math.floor(Math.random() * Math.floor(500)),
-      Math.floor(Math.random() * Math.floor(2000)),
-      Math.floor(Math.random() * Math.floor(5000)),
-      Math.floor(Math.random() * Math.floor(6000)),
-      Math.floor(Math.random() * Math.floor(8000)),
-      Math.floor(Math.random() * Math.floor(10000)),
-      Math.floor(Math.random() * Math.floor(20000))
-    ]
-
-    let random = randomArray[
-      Math.floor(Math.random()*randomArray.length)
-    ]
-
-    let query = new AV.Query(Status)
-    query.skip(random);
-    query.limit(20);
-
-    return query.find().then(statuses => {
-      statuses.forEach(status =>  status.set('msg', transformer(status.get('msg'))))
-      return statuses
-    })
+  saveStatus(statusid, status) {
+    this.store.statuses[statusid] = status
+    return Promise.resolve(status)
   }
 
-  fetch_daily (date) {
-    let query = new AV.Query(Status);
-    query.equalTo('date', date);
-    query.descending('createdAt');
-
-    return query.find().then(statuses => {
-      statuses.forEach(status =>  status.set('msg', transformer(status.msg)))
-      return statuses
-    })
+  getStatus (statusid) {
+    return this.store.statuses[statusid] 
+    ? Promise.resolve(this.store.statuses[statusid])
+    : fetchStatus(statusid).then(status => this.saveStatus(statusid, status))
   }
 
-  fetch_entries () {
+  saveDaily (date, statuses) {
+    statuses.forEach(status => this.saveStatus(status.statusid, status))
+    this.store.dailys[date] = statuses
+    return Promise.resolve(statuses)
+  }
+
+  getDaily (date) {
+    return this.store.dailys[date]
+      ? Promise.resolve(this.store.dailys[date])
+      : fetchDaily(date).then(statuses => this.saveDaily(date, statuses)).catch(err => console.log(err))
+  }
+
+  saveQuery (query, statuses) {
+    this.store.queries[query] = statuses
+    return Promise.resolve(statuses)
+  }
+
+  getQuery (query) {
+    return this.store.queries[query]
+      ? Promise.resolve(this.store.queries[query])
+      : search(query).then(statuses => this.saveQuery(query, statuses))
+  }
+
+  getEntries () {
     return new Promise((resolve, rejcect) => {
-      new AV.Query(Entries).first().then(res => {
-        let entries = res.data;
-        let today = [...entries].shift();
-        this.entries = entries;
-        this.today = today;
-        resolve(this.entries);
-      })
-      .catch(err => reject(err));
+      return fetchEntries()
+        .then(res => {
+          let entries = res.data;
+          let today = [...entries].shift().replace(/\.daily\.json/ig, '');
+          this.entries = entries;
+          this.store.today = today;
+          resolve(this.entries);
+        })
+        .catch(err => {
+          reject(err)
+        })
     })
   }
 
-  fetch_status (statusid) {
-    let query = new AV.Query(Status)
-    
-    query.equalTo('statusid', statusid)
-    query.limit(1)
-
-    return query.find().then(results => {
-      results[0].set('msg', transformer(results[0].msg))
-      return results[0]
-    }, err => console.log(err))
+  getToday () {
+    return this.store.today
+      ? this.getDaily(this.store.today)
+      : this.entries.then(() => this.getDaily(this.store.today))
   }
 
-  fetch_today () {
-    return this.entries.then(entries => {
-      let date_string = [...entries].shift().replace(/\.daily\.json/ig, '');
-      return this.fetch_daily(date_string)
-    }, err => console.log(err))
+  performSearch (query) {
+    return search(query)
   }
 
   get_calendars () {
@@ -105,18 +108,6 @@ class Store {
         let days = entries.map(item => item.replace(/\.json/ig, ''))
         return resolve(this.Calendar.generate(days))
       })
-    })
-  }
-
-  performSearch (value) {
-    let query = new AV.Query(Status);
-    query.contains('msg', value);
-    query.descending('createdAt');
-    query.limit(50);
-    
-    return query.find().then(statuses => {
-      statuses.forEach(status =>  status.set('msg', transformer(status.get('msg'))))
-      return statuses
     })
   }
 }
