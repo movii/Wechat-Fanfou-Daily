@@ -15,6 +15,9 @@ Page({
   onReady: function () {},
 
   onShow: function () {
+
+    if (this.data.statuses && this.data.statuses.length) return
+
     if (wx.showLoading) {
       wx.showLoading({
         title: "加载中...",
