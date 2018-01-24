@@ -21,7 +21,7 @@ Page({
       })
       
       if ( wx.hideLoading ) {
-        setTimeout(() => wx.hideLoading(), 400)
+        setTimeout(() => wx.hideLoading(), 100)
       }
     });
   },
