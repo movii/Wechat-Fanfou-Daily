@@ -1,3 +1,7 @@
+import {
+  backToTop
+} from '../../utils/index.js'
+
 let app = getApp();
 let store = app.globalData.store;
 
@@ -24,7 +28,10 @@ Page({
     // this.isCurrentPage = true;
     // wx.onAccelerometerChange(this.onDiviceShake)
 
-    if (this.data.keyword) {
+    let searchCondition = (!this.data.lastKeyword && this.data.keyword) 
+    || (this.data.keyword && this.data.lastKeyword && this.data.keyword !== this.data.lastKeyword)
+
+    if (searchCondition) {
       this.search(this.data.keyword)
     }
   },
@@ -32,6 +39,11 @@ Page({
   onHide: function () {
     // this.isCurrentPage = false 
     // wx.stopAccelerometer()
+    if (this.data.keyword) {
+      this.setData({
+        lastKeyword: this.data.keyword
+      })
+    }
   },
 
   onShareAppMessage: function () {
@@ -69,10 +81,7 @@ Page({
       keyword: keyword
     })
 
-    wx.pageScrollTo({
-      scrollTop: 0,
-      duration: 0
-    })
+    backToTop()
 
     store.getQuery(keyword)
       .then(statuses => {

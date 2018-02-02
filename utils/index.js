@@ -17,3 +17,7 @@ export function generateRandom () {
     Math.floor(Math.random()*randomArray.length)
   ]
 }
+
+export function backToTop () {
+  wx.pageScrollTo({ scrollTop: 0, duration: 0})
+}
