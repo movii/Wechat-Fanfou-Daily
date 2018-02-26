@@ -44,9 +44,10 @@ Profile 中的：[Vue-Fanfou-Daily](https://github.com/movii/Vue-Fanfou-Daily) �
 - 之前在开发小程序过程中帮助测试反馈的各位小伙伴（奶瓶 @小小小奶瓶 同学发现了很多 bug，尤其感谢）。
 
 ## 相关 blog 文章
-1. [笔记：「饭否精选」微信小程序（一）制作记录](https://moxo.io/blog/2017/06/01/a-wechat-app-of-fanfou-daily/)
-2. [笔记：「饭否精选」微信小程序（二）爬虫部分](https://moxo.io/blog/2017/06/15/%E7%AC%94%E8%AE%B0%E9%A5%AD%E5%90%A6%E7%B2%BE%E9%80%89%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%8C--%E7%88%AC%E8%99%AB%E9%83%A8%E5%88%86/)
-3. [笔记：「饭否精选」微信小程序（三）小程序开发中遇到的问题](http://movii.github.io/blog/2017/07/15/fanfou-daily-wechat-min-program/)
+
+1. [笔记：「饭否精选」微信小程序（一）制作记录](https://moxo.io/blog/2017/06/01/wechat-app-of-fanfou-daily/)
+2. [笔记：「饭否精选」微信小程序（二）爬虫部分](https://moxo.io/blog/2017/06/15/fanfou-daily-wechat-app-log-scrapy/)
+3. [笔记：「饭否精选」微信小程序（三）小程序开发中遇到的问题](https://moxo.io/blog/2017/07/15/problems-while-making-fanfou-daily-wechat-app/)
 
 ## License
 MIT License
